@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{751E4965-A6D6-4D97-9374-B7EC4C559939}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "BuildingEscapeWSC",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
