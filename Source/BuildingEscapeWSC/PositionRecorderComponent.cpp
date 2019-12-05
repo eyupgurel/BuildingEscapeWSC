@@ -19,8 +19,11 @@ UPositionRecorderComponent::UPositionRecorderComponent()
 void UPositionRecorderComponent::BeginPlay()
 {
 	Super::BeginPlay();
-    FString ObjectName = GetOwner()->GetName();
-    //UE_LOG(LogTemp,Warning, TEXT("Position report for %s"), *ObjectName);
+    UE_LOG(LogTemp,Warning, TEXT("Player begun"));
+    auto ObjectName = GetOwner()->GetName();
+    UE_LOG(LogTemp,Warning, TEXT("Position report for %s"), *ObjectName);
+    auto ObjectPos = GetOwner()->GetTransform().GetLocation().ToString();
+    UE_LOG(LogTemp,Warning,TEXT("%s is at %s"), *ObjectName, *ObjectPos);
 	// ...
 	
 }
