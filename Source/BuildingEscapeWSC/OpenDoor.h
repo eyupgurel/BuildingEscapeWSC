@@ -31,6 +31,10 @@ private:
     UPROPERTY(EditAnywhere)
     ATriggerVolume* PressurePlate;
 
+    UPROPERTY(EditAnywhere)
+    APawn* PawnThatOpens;
+
+    void OpenDoor() const;
 
 	
 };

@@ -20,23 +20,24 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
-    UE_LOG(LogTemp,Warning, TEXT("Open door begun"));
-	// ...
-	auto Rotation = FRotator(0.f,60.f,0.f);
-    UE_LOG(LogTemp,Warning,TEXT("rotation is %s"), *Rotation.ToString());
-	auto Owner = GetOwner();
-	auto res = Owner->SetActorRotation(Rotation);
-    UE_LOG(LogTemp,Warning,TEXT("result is %d"), res);
-
-
 }
 
+void UOpenDoor::OpenDoor() const {
+    UE_LOG(LogTemp, Warning, TEXT("Open door begun"));
+    // ...
+    auto Rotation = FRotator(0.f,60.f,0.f);
+    UE_LOG(LogTemp, Warning, TEXT("rotation is %s"), *Rotation.ToString());
+    auto Owner = GetOwner();
+    auto res = Owner->SetActorRotation(Rotation);
+    UE_LOG(LogTemp, Warning, TEXT("result is %d"), res);
+}
 
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
+    if(PressurePlate->IsOverlappingActor((AActor*) PawnThatOpens))
+        OpenDoor();
 	// ...
 }
 
